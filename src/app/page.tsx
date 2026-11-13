@@ -41,7 +41,8 @@ export default async function TodayPage() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-xl px-4 pb-16 pt-10">
+    // Safe-area padding: in home-screen mode the translucent status bar overlaps the top.
+    <main className="mx-auto w-full max-w-xl px-4 pb-[calc(env(safe-area-inset-bottom)+4rem)] pt-[calc(env(safe-area-inset-top)+2.5rem)]">
       <header className="mb-8">
         <p className="text-sm font-medium uppercase tracking-wider text-accent">Daily Briefing</p>
         <h1 className="mt-1 font-serif text-3xl leading-tight">{formatDate(briefing.date)}</h1>

@@ -92,6 +92,14 @@ RLS:
 
 Recommendation: read real briefings for a few days after Phase 4/5 and tune the prompt before building extras.
 
+## Current status (2026-11-13)
+
+- Done: Phase 1 (Supabase tables + RLS), 2 (pipeline), 4 (Today view), 5 (Vercel Cron, daily 05:00 UTC).
+- Live: https://daily-briefing-nine-pink.vercel.app — repo: github.com/RaynD-JPG/daily-briefing (public).
+- **Phase 3 (login) is postponed by choice.** The site is public for now; the server reads briefings with the service-role key (`src/lib/news/load.ts` → `store.ts`), never in the browser.
+- **Before building login:** rotate `SUPABASE_SERVICE_ROLE_KEY` (the old `sb_secret_` key was pasted into a chat). Update `.env.local` + Vercel, then redeploy. Gemini key rotation is optional (free tier).
+- Known prompt issue: "perspectives" is sometimes filled with an unrelated story (seen on the Hungary story).
+
 ## Conventions
 
 - TypeScript throughout; prefer type safety over `any`.
