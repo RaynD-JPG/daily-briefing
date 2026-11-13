@@ -1,9 +1,11 @@
 // Phase 2 test harness: fetch RSS -> Gemini -> print the briefing.
 // Usage: npm run briefing            (full run)
 //        npm run briefing -- --feeds (only test the RSS feeds, no Gemini call)
+//        npm run briefing -- --save  (also save it to Supabase)
 import { writeFileSync, mkdirSync } from "node:fs";
 import { fetchCandidates } from "../src/lib/news/fetch";
 import { generateBriefing, type Briefing } from "../src/lib/news/generate";
+import { saveBriefing } from "../src/lib/news/store";
 
 const LABELS: Record<string, string> = {
   world: "🌍 World",
@@ -45,6 +47,11 @@ async function main() {
   mkdirSync("out", { recursive: true });
   writeFileSync(`out/briefing-${date}.json`, JSON.stringify(briefing, null, 2));
   console.log(`Saved out/briefing-${date}.json`);
+
+  if (process.argv.includes("--save")) {
+    await saveBriefing(briefing);
+    console.log("Saved to Supabase");
+  }
 }
 
 // Exit explicitly: open keep-alive sockets from the feed fetches otherwise keep Node running.
