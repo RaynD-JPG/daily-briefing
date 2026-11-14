@@ -10,6 +10,7 @@ import { saveBriefing } from "../src/lib/news/store";
 const LABELS: Record<string, string> = {
   world: "🌍 World",
   hungary: "🇭🇺 Hungary",
+  jordan: "🇯🇴 Jordan",
   economy: "📈 Economy & Markets",
   tech: "💻 Tech & AI",
   positive: "☀️ Good News",

@@ -19,7 +19,7 @@ create table if not exists public.briefings (
 create table if not exists public.stories (
   id              uuid primary key default gen_random_uuid(),
   briefing_id     uuid not null references public.briefings (id) on delete cascade,
-  section         text not null check (section in ('world', 'hungary', 'economy', 'tech', 'positive')),
+  section         text not null,  -- allowed values: see stories_section_check below
   position        integer not null,
   title           text not null,
   summary         text not null,
@@ -30,6 +30,11 @@ create table if not exists public.stories (
 );
 
 create index if not exists stories_briefing_id_idx on public.stories (briefing_id);
+
+-- Allowed sections. Recreated on every run so adding a section = edit this list and re-run.
+alter table public.stories drop constraint if exists stories_section_check;
+alter table public.stories add constraint stories_section_check
+  check (section in ('world', 'hungary', 'jordan', 'economy', 'tech', 'positive'));
 
 -- Bookmarks: private to each user (used in the Extras phase).
 create table if not exists public.bookmarks (

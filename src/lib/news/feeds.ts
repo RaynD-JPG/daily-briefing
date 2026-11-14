@@ -1,4 +1,4 @@
-export type Section = "world" | "hungary" | "economy" | "tech" | "positive";
+export type Section = "world" | "hungary" | "jordan" | "economy" | "tech" | "positive";
 
 export type Feed = {
   name: string; // outlet name shown to the reader
@@ -24,6 +24,15 @@ export const FEEDS: Feed[] = [
   { name: "Hungary Today", url: "https://hungarytoday.hu/feed/", hint: "hungary" },
   { name: "Daily News Hungary", url: "https://dailynewshungary.com/feed/", hint: "hungary" },
 
+  // Jordan (English only). Jordan Times blocks direct RSS (403), so it comes via Google News.
+  // Petra, Ammon News and Al-Mamlaka returned no usable feed on 2026-11-14.
+  { name: "Roya News", url: "https://en.royanews.tv/rss", hint: "jordan" },
+  {
+    name: "Jordan Times",
+    url: "https://news.google.com/rss/search?q=site:jordantimes.com+when:2d&hl=en-US&gl=US&ceid=US:en",
+    hint: "jordan",
+  },
+
   // Economy / markets
   { name: "BBC Business", url: "https://feeds.bbci.co.uk/news/business/rss.xml", hint: "economy" },
   { name: "The Economist", url: "https://www.economist.com/finance-and-economics/rss.xml", hint: "economy" },
@@ -42,6 +51,7 @@ export const FEEDS: Feed[] = [
 export const SECTION_COUNTS: Record<Section, number> = {
   world: 3,
   hungary: 1,
+  jordan: 1,
   economy: 1,
   tech: 1,
   positive: 1,

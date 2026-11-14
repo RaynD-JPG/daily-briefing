@@ -5,6 +5,7 @@ import { loadLatestBriefing } from "@/lib/news/load";
 const SECTIONS: { id: Section; label: string; emoji: string }[] = [
   { id: "world", label: "World", emoji: "🌍" },
   { id: "hungary", label: "Hungary", emoji: "🇭🇺" },
+  { id: "jordan", label: "Jordan", emoji: "🇯🇴" },
   { id: "economy", label: "Economy & Markets", emoji: "📈" },
   { id: "tech", label: "Tech & AI", emoji: "💻" },
   { id: "positive", label: "Good News", emoji: "☀️" },

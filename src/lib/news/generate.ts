@@ -3,7 +3,7 @@ import { z } from "zod";
 import { SECTION_COUNTS, type Section } from "./feeds";
 import type { Candidate } from "./fetch";
 
-const SECTIONS = ["world", "hungary", "economy", "tech", "positive"] as const;
+const SECTIONS = ["world", "hungary", "jordan", "economy", "tech", "positive"] as const;
 
 // What Gemini must return. It cites candidate ids, never raw URLs.
 const GeminiOutput = z.object({
@@ -47,7 +47,8 @@ Rules:
 - Sections and exact counts: ${Object.entries(SECTION_COUNTS)
   .map(([s, n]) => `${s}: ${n}`)
   .join(", ")}.
-  world = most important global stories; hungary = top story from Hungary; economy = economy or markets;
+  world = most important global stories; hungary = top story from Hungary; jordan = top story from Jordan;
+  economy = economy or markets;
   tech = technology or AI; positive = one genuinely positive story.
 - A candidate's "hint" is only a suggestion; put a story in whichever section fits best.
 - Every story must be about a different topic: never cover the same event, company or person in two sections (e.g. not one world story AND one economy story on the same scandal) — pick a different story instead.

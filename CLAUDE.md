@@ -26,6 +26,7 @@ Core user flow:
 - **Sections:**
   - 3 × World (most important)
   - 1 × Hungary (top story)
+  - 1 × Jordan (top story; English-language sources only)
   - 1 × Economy / Markets
   - 1 × Tech / AI
   - 1 × Positive story
@@ -52,6 +53,7 @@ Core user flow:
 
 - World: BBC World, Reuters (no official public RSS anymore — use Google News RSS filtered to reuters.com, or swap for AP / The Guardian), Al Jazeera
 - Hungary: Telex, Portfolio, (optionally) Hungary Today / Daily News Hungary for English
+- Jordan (English only, by choice): Roya News English, Jordan Times (via Google News; direct RSS is 403)
 - Economy / Markets: Portfolio, BBC Business, FT/Economist headlines where RSS is available (articles may be paywalled — link anyway)
 - Tech / AI: BBC Technology, Ars Technica, The Verge
 - Positive: Positive News, Good News Network
